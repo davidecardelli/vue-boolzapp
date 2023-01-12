@@ -1,9 +1,69 @@
+
 body {
     height: 100vh;
     background: linear-gradient(to bottom, #009688 20%, #d9dbd5 0%);
 }
 
-#chat-box {
+/* UTILS */
+
+.debug {
     border: 1px solid black;
+}
+
+.bgc-header {
+    background-color: #eaeaea;
+}
+
+.bgc-footer {
+    background-color: #f3eeea;
+}
+
+.bgc-push-notification {
+    background-color: #8edafc;
+}
+
+.bgc-push-search {
+    background-color: #fafafa;
+}
+
+
+/* CHAT BOX */
+
+#chat-box {
     height: 95%;
+}
+
+/* CHAT BOX LEFT */
+
+#list-header {
+    height: 10%;
+}
+
+#push-notification {
+    height: 10%;
+
+}
+
+#search {
+    height: 5%;
+}
+
+#contact-list {
+    height: 75%;
+    overflow-y: scroll;
+}
+
+/* CHAT BOX RIGHT */
+
+#chat-header {
+    height: 10%;
+}
+
+#chat-main {
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#chat-footer {
+    height: 10%;
 }
