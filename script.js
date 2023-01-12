@@ -8,6 +8,6 @@ const app = Vue.createApp({
         }
     },
         
-    });
+ });
 
 app.mount('#chat-box');
