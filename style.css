@@ -81,6 +81,30 @@ body {
     background-image: url('img/mine.jpg');
 }
 
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.message.sent {
+    background-color: white;
+    align-self: flex-start;
+
+}
+
+.message.recived {
+    background-color: #d5f9ba;
+    align-self: flex-end;
+}
+
+.message > span {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
 #chat-footer {
     height: 10%;
 }
