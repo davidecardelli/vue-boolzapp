@@ -2,3 +2,8 @@ body {
     height: 100vh;
     background: linear-gradient(to bottom, #009688 20%, #d9dbd5 0%);
 }
+
+#chat-box {
+    border: 1px solid black;
+    height: 95%;
+}
