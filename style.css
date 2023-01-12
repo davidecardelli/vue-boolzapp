@@ -6,9 +6,9 @@ body {
 
 /* UTILS */
 
-.debug {
+/* .debug {
     border: 1px solid black;
-}
+} */
 
 .bgc-header {
     background-color: #eaeaea;
@@ -39,18 +39,34 @@ body {
     height: 10%;
 }
 
+.user-img {
+    height: 80%;
+}
+
 #push-notification {
     height: 10%;
 
 }
 
+.push-notification-icon {
+    height: 100%;
+    padding: 5px;
+}
+
 #search {
     height: 5%;
+    position: relative;
 }
+
 
 #contact-list {
     height: 75%;
     overflow-y: scroll;
+}
+
+.user {
+    height: 15%;
+    border-bottom: 2px solid #fafafa;
 }
 
 /* CHAT BOX RIGHT */
@@ -62,6 +78,7 @@ body {
 #chat-main {
     height: 80%;
     overflow-y: scroll;
+    background-image: url('img/mine.jpg');
 }
 
 #chat-footer {
