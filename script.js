@@ -11,6 +11,12 @@ const app = Vue.createApp({
         }
     },
 
+    computed: {
+        filter() {
+            return this.data.contacts.filter( contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
+        }
+    },
+
     methods: {
         
         // Cambio del currentIndex che userò per girare nella lista delle conversazioni. 
@@ -49,7 +55,7 @@ const app = Vue.createApp({
             const messages = ["Va bene", "Ok", "Non ho capito", "Certamente"];
             const randomIndex = Math.floor(Math.random() * messages.length);
             return messages[randomIndex];
-          }
+        }
     }
         
  });

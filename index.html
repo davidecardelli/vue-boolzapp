@@ -73,7 +73,7 @@
 
                 <!-- LISTA DELLE VARIE CHAT -->
                 <div id="contact-list">
-                    <div v-for="(contact, i) in data.contacts" class="user d-flex" @click="goTo(i)">
+                    <div v-for="(contact, i) in filter" class="user d-flex" @click="goTo(i)">
                         <div class="user-img h-100 p-2 d-flex">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0">
                         </div>
