@@ -73,7 +73,7 @@
 
             <!-- LISTA DELLE VARIE CHAT -->
             <div id="contact-list" class="debug">
-                <div v-for="contact in data.contacts" class="user d-flex">
+                <div v-for="(contact, i) in data.contacts" class="user d-flex" @click="goTo(i)">
                     <div class="user-img h-100 p-2 d-flex">
                         <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0">
                     </div>
@@ -90,10 +90,12 @@
            
             <div id="chat-header" class="debug bgc-header d-flex justify-content-between align-items-center px-2">
                 <div class="h-100 d-flex align-items-center">
-                    <div class="user-img d-flex">
-                        <img src="img/avatar_1.jpg" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
+                    <div class="h-100 d-flex align-items-center">
+                        <div class="user-img d-flex">
+                            <img :src="'img/avatar' + data.contacts[currentIndex].avatar + '.jpg'" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
+                        </div>
+                        <h6 class="m-0">{{ data.contacts[currentIndex].name }}</h6>
                     </div>
-                    <h6 class="m-0">Michele</h6>
                 </div>
                 <div class="list-header-icon">
                     <i class="bi bi-search p-2 m-0 h5"></i>
@@ -104,11 +106,8 @@
             </div>
 
             <div id="chat-main" class="debug px-5 py-3 d-flex flex-column">
-                <div class="message recived col-6">
-                    <span>Ciao Davide, come stai?</span>
-                </div>
-                <div class="message sent sent col-6">
-                    <span>Molto bene. Grazie.</span>
+                <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6" :class="isRecived(i) ? 'received' : 'sent'">
+                    <span>{{ message.text }}</span>
                 </div>
             </div>
 

@@ -89,14 +89,14 @@ body {
 }
 
 .message.sent {
-    background-color: white;
-    align-self: flex-start;
+    background-color: #d5f9ba;
+    align-self: flex-end;
 
 }
 
-.message.recived {
-    background-color: #d5f9ba;
-    align-self: flex-end;
+.message.received {
+    background-color: white;
+    align-self: flex-start;
 }
 
 .message > span {
