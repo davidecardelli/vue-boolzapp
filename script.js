@@ -17,6 +17,19 @@ const app = Vue.createApp({
         goTo(index) {
            this.currentIndex = index;
         },
+        sendMessage () {
+            const message = {
+                date: new Date().toLocaleString(),
+                text: this.newMessage,
+                status: 'sent'
+            }
+            this.data.contacts[this.currentIndex].messages.push(message);
+            this.cleanMessage();
+        },
+        cleanMessage () {
+            this.newMessage = '';
+        }
+        
         
     }
         
