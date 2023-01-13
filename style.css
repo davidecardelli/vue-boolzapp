@@ -101,8 +101,12 @@ body {
 
 .message > span {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin: 0;
+}
+
+.date {
+    font-size: 8px;
 }
 
 #chat-footer {
