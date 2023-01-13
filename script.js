@@ -12,6 +12,8 @@ const app = Vue.createApp({
     },
 
     computed: {
+        // .filter ci permette di ricavare un nuovo array da un array di partenza, dopo aver verificato la condizione. partendo quindi dall'array in db.js utilizzo filter per farmi restituire solo quanto sto digitando in search. I lowercase è per non avere problemi di maiuscole e minuscole.
+        // Nell'HTML vado a impostare il v-for della lista contatti su questo array, quindi filter, e non più su quello principale.
         filter() {
             return this.data.contacts.filter( contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
         }
