@@ -26,24 +26,30 @@ const app = Vue.createApp({
             }
             this.data.contacts[this.currentIndex].messages.push(message);
             this.cleanMessage();
-            this.reciveMessage();
+            this.receivedMessage();
         },
 
         cleanMessage () {
             this.newMessage = '';
         },
 
-        reciveMessage() {
+        receivedMessage() {
             setTimeout(() => {
                 const message = {
                     date: new Date().toLocaleString(),
-                    text: 'Va bene',
+                    text: this.randomMessage(),
                     status: 'received'
                 }
                 this.data.contacts[this.currentIndex].messages.push(message);
 
             }, 1000)
-        }
+        },
+
+        randomMessage() {
+            const messages = ["Va bene", "Ok", "Non ho capito", "Certamente"];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+          }
     }
         
  });
