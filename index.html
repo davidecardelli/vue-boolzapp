@@ -32,93 +32,94 @@
 
     <!-- QUADRATONE CENTRALE DELLA WEB APP -->
     <div id="chat-box" class="col-10 bg-white d-flex">
-        
-        <!-- COLONNA DI SINISTRA -->
-        <div id="chat-box-left" class="debug h-100 col-4">
 
-            <!-- FOOTER DELLA COLONNA SINISTRA -->
-            <div id="list-header" class="debug bgc-header d-flex justify-content-between align-items-center px-2">
-                <div class="h-100 d-flex align-items-center">
-                    <div class="user-img d-flex">
-                        <img :src="`img/avatar${data.user.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
-                    </div>
-                    <h6 class="m-0">{{data.user.name}}</h6>
-                </div>
-                <div class="list-header-icon">
-                    <i class="bi bi-arrow-clockwise p-2 m-0 h5"></i>
-                    <i class="bi bi-chat-right p-2 m-0 h5"></i>
-                    <i class="bi bi-three-dots p-2 m-0 h5"></i>
-                </div>
-            </div>
+            <!-- COLONNA DI SINISTRA -->
+            <div id="chat-box-left" class="h-100 col-4">
 
-            <!-- BARRA PER ATTIVARE LE NOTIFICHE -->
-            <div id="push-notification" class="debug bgc-push-notification">
-                <div class="d-flex align-items-center h-100 px-3">
-                    <div class="push-notification-icon d-flex justify-content-center align-items-center rounded-5">
-                        <i class="fa-solid fa-bell-slash bg-white rounded-5 p-2 m-0 h4"></i>
-                    </div>
-                    <div class="push-notification-text ps-2">
-                        <!-- # TODO SISTEMARE TESTO COME DA TRACCIA -->
-                        <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
-                        <p class="m-0">Attiva notifiche desktop</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BARRA DI RICERCA -->
-            <div id="search" class="debug bgc-push-search d-flex align-items-center px-1">
-                <!-- # TODO INSERIRE LA LENTE DI INGRANDIMENTO -->
-                <input id="list-search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
-            </div>
-
-            <!-- LISTA DELLE VARIE CHAT -->
-            <div id="contact-list" class="debug">
-                <div v-for="(contact, i) in data.contacts" class="user d-flex" @click="goTo(i)">
-                    <div class="user-img h-100 p-2 d-flex">
-                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0">
-                    </div>
-                    <div class="user-name py-3 h-100">
-                        <h6 class="m-0">{{contact.name}}</h6>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- COLONNA DI DESTRA -->
-        <div id="chat-box-right" class="debug h-100 col-8">
-           
-            <div id="chat-header" class="debug bgc-header d-flex justify-content-between align-items-center px-2">
-                <div class="h-100 d-flex align-items-center">
+                <!-- FOOTER DELLA COLONNA SINISTRA -->
+                <div id="list-header" class="bgc-header d-flex justify-content-between align-items-center px-2">
                     <div class="h-100 d-flex align-items-center">
                         <div class="user-img d-flex">
-                            <img :src="'img/avatar' + data.contacts[currentIndex].avatar + '.jpg'" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
+                            <img :src="`img/avatar${data.user.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
                         </div>
-                        <h6 class="m-0">{{ data.contacts[currentIndex].name }}</h6>
+                        <h6 class="m-0">{{data.user.name}}</h6>
+                    </div>
+                    <div class="list-header-icon">
+                        <i class="bi bi-arrow-clockwise p-2 m-0 h5"></i>
+                        <i class="bi bi-chat-right p-2 m-0 h5"></i>
+                        <i class="bi bi-three-dots p-2 m-0 h5"></i>
                     </div>
                 </div>
-                <div class="list-header-icon">
-                    <i class="bi bi-search p-2 m-0 h5"></i>
-                    <i class="bi bi-link-45deg p-2 m-0 h5"></i>
-                    <i class="bi bi-three-dots p-2 m-0 h5"></i>
+
+                <!-- BARRA PER ATTIVARE LE NOTIFICHE -->
+                <div id="push-notification" class="bgc-push-notification">
+                    <div class="d-flex align-items-center h-100 px-3">
+                        <div class="push-notification-icon d-flex justify-content-center align-items-center rounded-5">
+                            <i class="fa-solid fa-bell-slash bg-white rounded-5 p-2 m-0 h4"></i>
+                        </div>
+                        <div class="push-notification-text ps-2">
+                            <!-- # TODO SISTEMARE TESTO COME DA TRACCIA -->
+                            <p class="m-0">Ricevi notifiche di nuovi messaggi</p>
+                            <p class="m-0">Attiva notifiche desktop</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BARRA DI RICERCA -->
+                <div id="search" class="bgc-push-search d-flex align-items-center px-1">
+                    <!-- # TODO INSERIRE LA LENTE DI INGRANDIMENTO -->
+                    <input v-model="search" id="list-search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
+                </div>
+
+                <!-- LISTA DELLE VARIE CHAT -->
+                <div id="contact-list">
+                    <div v-for="(contact, i) in data.contacts" class="user d-flex" @click="goTo(i)">
+                        <div class="user-img h-100 p-2 d-flex">
+                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0">
+                        </div>
+                        <div class="user-name py-3 h-100">
+                            <h6 class="m-0">{{contact.name}}</h6>
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
-            <div id="chat-main" class="debug px-5 py-3 d-flex flex-column">
-                <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6 d-flex justify-content-between" :class="isRecived(i) ? 'received' : 'sent'">
-                    <span class="col-9 m-0">{{ message.text }}</span>
-                    <span class="col-3 m-0 date">{{ message.date }}</span>
+            <!-- COLONNA DI DESTRA -->
+            <div id="chat-box-right" class="h-100 col-8">
+            
+                <div id="chat-header" class="bgc-header d-flex justify-content-between align-items-center px-2">
+                    <div class="h-100 d-flex align-items-center">
+                        <div class="h-100 d-flex align-items-center">
+                            <div class="user-img d-flex">
+                                <img :src="'img/avatar' + data.contacts[currentIndex].avatar + '.jpg'" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
+                            </div>
+                            <h6 class="m-0">{{ data.contacts[currentIndex].name }}</h6>
+                        </div>
+                    </div>
+                    <div class="list-header-icon">
+                        <i class="bi bi-search p-2 m-0 h5"></i>
+                        <i class="bi bi-link-45deg p-2 m-0 h5"></i>
+                        <i class="bi bi-three-dots p-2 m-0 h5"></i>
+                    </div>
+
                 </div>
+
+                <div id="chat-main" class="px-5 py-3 d-flex flex-column">
+                    <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6 d-flex justify-content-between" :class="isRecived(i) ? 'received' : 'sent'">
+                        <span class="col-9 m-0">{{ message.text }}</span>
+                        <span class="col-3 m-0 date">{{ message.date }}</span>
+                    </div>
+                </div>
+
+                <div id="chat-footer" class="bgc-footer d-flex justify-content-evenly align-items-center">
+                    <i class="bi bi-emoji-smile-fill p-2 m-0 h5"></i>
+                    <input v-model="newMessage" id="list-search" type="text" class="col-10 rounded-1 h-75 ps-2" placeholder="Cerca o inizia una nuova chat">
+                    <i class="bi bi-mic-fill p-2 m-0 h5"></i>
+                </div>
+
             </div>
 
-            <div id="chat-footer" class="debug bgc-footer d-flex justify-content-evenly align-items-center">
-                <i class="bi bi-emoji-smile-fill p-2 m-0 h5"></i>
-                <input v-model="newMessage" id="list-search" type="text" class="col-10 rounded-1 h-75 ps-2" placeholder="Cerca o inizia una nuova chat">
-                <i class="bi bi-mic-fill p-2 m-0 h5"></i>
-            </div>
-
-        </div>
     </div>
 
 </body>
