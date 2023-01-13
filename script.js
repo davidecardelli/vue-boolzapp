@@ -18,10 +18,6 @@ const app = Vue.createApp({
            this.currentIndex = index;
         },
         
-        // Ternario che mi risponde se il messaggio è stato ricevuto o meno.
-        isRecived(i){
-            return this.data.contacts[this.currentIndex].messages[i].status === 'received'
-        }
     }
         
  });

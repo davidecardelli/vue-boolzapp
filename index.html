@@ -106,7 +106,7 @@
                 </div>
 
                 <div id="chat-main" class="px-5 py-3 d-flex flex-column">
-                    <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6 d-flex justify-content-between" :class="isRecived(i) ? 'received' : 'sent'">
+                    <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6 d-flex justify-content-between" :class="message.status">
                         <span class="col-9 m-0">{{ message.text }}</span>
                         <span class="col-3 m-0 date">{{ message.date }}</span>
                     </div>
