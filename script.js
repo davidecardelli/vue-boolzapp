@@ -7,6 +7,7 @@ const app = Vue.createApp({
          currentIndex: 0,
          data,
          newMessage: '',
+         search: '',
         }
     },
 
