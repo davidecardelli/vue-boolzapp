@@ -17,6 +17,7 @@ const app = Vue.createApp({
         goTo(index) {
            this.currentIndex = index;
         },
+
         sendMessage () {
             const message = {
                 date: new Date().toLocaleString(),
@@ -25,12 +26,24 @@ const app = Vue.createApp({
             }
             this.data.contacts[this.currentIndex].messages.push(message);
             this.cleanMessage();
+            this.reciveMessage();
         },
+
         cleanMessage () {
             this.newMessage = '';
+        },
+
+        reciveMessage() {
+            setTimeout(() => {
+                const message = {
+                    date: new Date().toLocaleString(),
+                    text: 'Va bene',
+                    status: 'received'
+                }
+                this.data.contacts[this.currentIndex].messages.push(message);
+
+            }, 1000)
         }
-        
-        
     }
         
  });
