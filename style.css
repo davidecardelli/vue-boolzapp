@@ -26,6 +26,10 @@ body {
     background-color: #fafafa;
 }
 
+.selected {
+    background-color: rgba(110, 110, 110, 0.2);
+}
+
 
 /* CHAT BOX */
 
