@@ -70,7 +70,7 @@
                 <!-- BARRA DI RICERCA -->
                 <div id="search" class="bgc-push-search d-flex align-items-center px-1">
                     <i class="bi bi-search"></i>
-                    <input v-model="search" id="list-search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <!-- LISTA DELLE VARIE CHAT -->
@@ -118,7 +118,7 @@
 
                 <div id="chat-footer" class="bgc-footer d-flex justify-content-evenly align-items-center">
                     <i class="bi bi-emoji-smile-fill p-2 m-0 h5"></i>
-                    <input v-model="newMessage" id="list-search" type="text" class="col-10 rounded-1 h-75 ps-2" placeholder="Cerca o inizia una nuova chat" @keyup.enter="sendMessage()">
+                    <input v-model="newMessage" type="text" class="col-10 rounded-1 h-75 ps-2" placeholder="Cerca o inizia una nuova chat" @keyup.enter="sendMessage()">
                     <i class="bi bi-mic-fill p-2 m-0 h5"></i>
                 </div>
 
