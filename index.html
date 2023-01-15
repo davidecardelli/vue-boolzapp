@@ -42,7 +42,9 @@
                         <div class="user-img d-flex">
                             <img :src="`img/avatar${data.user.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
                         </div>
-                        <h6 class="m-0">{{data.user.name}}</h6>
+                        <div class="user-name d-flex">
+                            <h6 class="h-100 m-0">{{data.user.name}}</h6>
+                        </div>
                     </div>
                     <div class="list-header-icon">
                         <i class="bi bi-arrow-clockwise p-2 m-0 h5"></i>
@@ -67,7 +69,7 @@
 
                 <!-- BARRA DI RICERCA -->
                 <div id="search" class="bgc-push-search d-flex align-items-center px-1">
-                    <!-- # TODO INSERIRE LA LENTE DI INGRANDIMENTO -->
+                    <i class="bi bi-search"></i>
                     <input v-model="search" id="list-search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
@@ -94,7 +96,9 @@
                             <div class="user-img d-flex">
                                 <img :src="'img/avatar' + data.contacts[currentIndex].avatar + '.jpg'" alt="Avatar 1" class="img-fluid rounded-5 p-1 m-0">
                             </div>
-                            <h6 class="m-0">{{ data.contacts[currentIndex].name }}</h6>
+                            <div class="user-name d-flex">
+                                <h6 class="m-0">{{ data.contacts[currentIndex].name }}</h6>
+                            </div>
                         </div>
                     </div>
                     <div class="list-header-icon">
