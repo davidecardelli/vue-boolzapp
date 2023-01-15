@@ -56,12 +56,12 @@ body {
 
 #contact-list {
     height: calc(100% - 210px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 #chat-main {
     height: calc(100% - 160px);
-    overflow-y: scroll;
+    overflow-y: auto;
     background-image: url('img/mine.jpg');
 }
 
