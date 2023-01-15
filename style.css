@@ -4,6 +4,10 @@ body {
     background: linear-gradient(to bottom, #009688 20%, #d9dbd5 0%);
 }
 
+i {
+    cursor: pointer;
+}
+
 /* BG COLOR */
 
 .bgc-header {

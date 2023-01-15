@@ -89,7 +89,8 @@
 
             <!-- COLONNA DI DESTRA -->
             <div id="chat-box-right" class="h-100 col-8">
-            
+
+                <!-- HEADER DELLA COLONNA DESTRA -->
                 <div id="chat-header" class="bgc-header d-flex justify-content-between align-items-center px-2">
                     <div class="h-100 d-flex align-items-center">
                         <div class="h-100 d-flex align-items-center">
@@ -109,6 +110,7 @@
 
                 </div>
 
+                <!-- LISTA MESSAGGI -->
                 <div id="chat-main" class="px-5 py-3 d-flex flex-column">
                     <div v-for="(message, i) in data.contacts[currentIndex].messages" class="message col-6 d-flex justify-content-between" :class="message.status">
                         <span class="col-9 m-0">{{ message.text }}</span>
@@ -116,6 +118,7 @@
                     </div>
                 </div>
 
+                <!-- FOOTER COLONNA DESTRA -->
                 <div id="chat-footer" class="bgc-footer d-flex justify-content-evenly align-items-center">
                     <i class="bi bi-emoji-smile-fill p-2 m-0 h5"></i>
                     <input v-model="newMessage" type="text" class="col-10 rounded-1 h-75 ps-2" placeholder="Cerca o inizia una nuova chat" @keyup.enter="sendMessage()">
