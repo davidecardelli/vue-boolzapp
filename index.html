@@ -70,17 +70,21 @@
                 <!-- BARRA DI RICERCA -->
                 <div id="search" class="bgc-push-search d-flex align-items-center px-1">
                     <i class="bi bi-search"></i>
-                    <input v-model="search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="search" type="text" class="rounded-1 ps-5 w-100" placeholder="Cerca o inizia una nuova chat" @keyup="filter()">
                 </div>
 
                 <!-- LISTA DELLE VARIE CHAT -->
                 <div id="contact-list">
-                    <div v-for="(contact, i) in filter" class="user d-flex" :class="{'selected' : i === currentIndex}" @click="goTo(i)">
-                        <div class="user-img h-100 p-2 d-flex">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0" >
-                        </div>
-                        <div class="user-name py-3 h-100">
-                            <h6 class="m-0">{{contact.name}}</h6>
+                    <div v-for="(contact, i) in data.contacts">
+                        <div v-show="contact.visible">
+                            <div class="user d-flex" :class="{'selected' : i === currentIndex}" @click="goTo(i)">
+                                <div class="user-img h-100 p-2 d-flex">
+                                    <img :src="`img/avatar${contact.avatar}.jpg`" alt="Avatar 1" class="img-fluid rounded-5 m-0" >
+                                </div>
+                                <div class="user-name py-3 h-100">
+                                    <h6 class="m-0">{{contact.name}}</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

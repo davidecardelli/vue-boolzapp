@@ -11,14 +11,6 @@ const app = Vue.createApp({
         }
     },
 
-    computed: {
-        // .filter ci permette di ricavare un nuovo array da un array di partenza, dopo aver verificato la condizione. partendo quindi dall'array in db.js utilizzo filter per farmi restituire solo quanto sto digitando in search. I lowercase è per non avere problemi di maiuscole e minuscole.
-        // Nell'HTML vado a impostare il v-for della lista contatti su questo array, quindi filter, e non più su quello principale.
-        filter() {
-            return this.data.contacts.filter( contact => contact.name.toLowerCase().includes(this.search.toLowerCase()));
-        }
-    },
-
     methods: {
         
         // Partiamo da un currentIndex 0, per poter girare nella lista contatti, ho bisogno che l'index cambi in base al valore dell'i dell'array, per cui mi creo una funzione che renda il currentIndex lo stesso valore della i. Avendo creato un ciclo v-for per stampare nel DOM tutti i contatti, l'index sarà la i del v-for.
@@ -59,6 +51,12 @@ const app = Vue.createApp({
             const messages = ["Va bene", "Ok", "Non ho capito", "Certamente"];
             const randomIndex = Math.floor(Math.random() * messages.length);
             return messages[randomIndex];
+        },
+
+        filter(){
+            this.data.contacts.forEach(contact => {
+               contact.visible = contact.name.toLowerCase().includes(this.search.toLowerCase())
+            })
         }
     }
         
