@@ -48,16 +48,21 @@ const app = Vue.createApp({
         },
 
         randomMessage() {
-            const messages = ["Va bene", "Ok", "Non ho capito", "Certamente"];
+            const messages = ["Va bene", "Ok", "Non ho capito", "Certamente", "Puoi ripetere?", "Non ho voglia di sentirti", "Scrivimi tra un po', sto lavorando"];
             const randomIndex = Math.floor(Math.random() * messages.length);
             return messages[randomIndex];
         },
-
-        filter(){
+        
+        // Tramite questa funzione, ciclo in data.contacts andandomi a modificare il contact.visible in base a quello che cerco nella barra di ricerca. Per farlo funzionare, richiamo questa funzione con un @keyup nell'HTML, in maniera che ogni tasto cliccato mi dà la corrispondenza in tempo reale tra quello che digito e quello che compare nella lista contatti.
+        filter() {
             this.data.contacts.forEach(contact => {
                contact.visible = contact.name.toLowerCase().includes(this.search.toLowerCase())
             })
-        }
+        },
+
+        deleteMessage(i){
+            this.data.contacts[this.currentIndex].messages.splice(i, 1);
+        },
     }
         
  });
